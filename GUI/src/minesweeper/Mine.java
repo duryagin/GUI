@@ -5,17 +5,17 @@ public class Mine {
     private Matrix mapOfMines;
     private int totalMines;
 
-    public Mine(int totalMines) { // устанавливаем кол-во мин
+    Mine(int totalMines) { // устанавливаем кол-во мин
         this.totalMines = totalMines;
         fixCountOfMines();
     }
 
-    public void start() { // расстановка мин
+    void start() { // расстановка мин
         mapOfMines = new Matrix(Cell.ZERO);
         for (int j = 0; j < totalMines; j++) placeOfMine();
     }
 
-    public Cell get (Coord coord) {
+    Cell get (Coord coord) {
         return mapOfMines.get(coord);
     }
 

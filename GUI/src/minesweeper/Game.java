@@ -53,24 +53,20 @@ public class Game {
     	
     	switch (flag.get(coord)) {
     	
-    	case CLICK:
-    		setOpenedToClosedCellsAroundNumber(coord); return;
+    	case CLICK: setOpenedToClosedCellsAroundNumber(coord); return;
     	case FLAGGED: return;
     	case CLOSED:
     		
     		switch (mine.get(coord)) {
     		
-    		case ZERO:
-    			openCellsAround(coord); // открыть пустые ячейки вокруг
-    			return;
+    		// открыть пустые ячейки вокруг
+    		case ZERO: openCellsAround(coord); return;
     		case MINE: openMines(coord); return;
-    		default:
-    			flag.setOpenedToCell(coord); return;
-    			
+    		default: flag.setOpenedToCell(coord); return;
     		}
     		default: break;
-        }
-    }
+    		}
+    	}
 
     private void openMines(Coord mine) {
         status = Status.LOST;

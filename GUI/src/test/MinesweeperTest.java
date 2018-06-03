@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 import minesweeper.Cell;
 import minesweeper.Coord;
 import minesweeper.Game;
-import minesweeper.Matrix;
-import minesweeper.Ranges;
 import minesweeper.Status;
 
 class MinesweeperTest {
@@ -56,6 +54,48 @@ class MinesweeperTest {
 		Coord coords = new Coord(0, 0);
 		game.pressRightButton(coords);
 		assertEquals(game.getStatus(), Status.PLAY);
+	
+	}
+	
+	@Test
+	void numOfClosed() {
+		
+		int columns = 3;
+		int rows = 3;
+		Coord coords = new Coord(0, 0);
+		int count = 0;
+		
+		Game game = new Game(columns, rows, 1);
+		game.start();
+		
+		for (coords.x = 0; coords.x < columns; coords.x++)
+			for (coords.y = 0; coords.y < rows; coords.y++)
+				if (game.getCell(coords) == Cell.CLOSED)
+					count++;
+		
+		assertEquals(count, 9);
+	
+	}
+	
+	@Test
+	void numOfFlagged() {
+		
+		int columns = 3;
+		int rows = 3;
+		Coord coords = new Coord(0, 0);
+		int count = 0;
+		
+		Game game = new Game(columns, rows, 5);
+		game.start();
+		
+		for (coords.x = 0; coords.x < columns; coords.x++)
+			for (coords.y = 0; coords.y < rows; coords.y++) {
+				game.pressRightButton(coords);
+				if (game.getCell(coords) == Cell.FLAGGED)
+					count++;
+			}
+		
+		assertEquals(count, 9);
 	
 	}
 

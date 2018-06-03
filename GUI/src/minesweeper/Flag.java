@@ -5,7 +5,7 @@ public class Flag {
     private Matrix mapOfFlags;
     private int countOfСlosedMines;
 
-    public void start () {
+    void start () {
         mapOfFlags = new Matrix(Cell.CLOSED);
         countOfСlosedMines = Ranges.getSize().x * Ranges.getSize().y;
     }
@@ -24,13 +24,9 @@ public class Flag {
     	
     	switch (mapOfFlags.get(coord)) {
     	
-    	case FLAGGED:
-    		setClosedToCell(coord);
-    		break;
-    	case CLOSED:
-    		setFlaggedToMine(coord); break;
-		default:
-			break;
+    	case FLAGGED: setClosedToCell(coord);break;
+    	case CLOSED: setFlaggedToMine(coord); break;
+		default: break;
         }
     }
 

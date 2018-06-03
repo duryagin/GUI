@@ -39,8 +39,8 @@ public class Ranges {
     }
 
     // получаем координаты вокург клетки
-    public static ArrayList<Coord> getCoordsArround(Coord coord) {
-        Coord around;
+    static ArrayList<Coord> getCoordsArround(Coord coord) {
+    	Coord around;
         ArrayList<Coord> list = new ArrayList<Coord>();
         for (int x = coord.x - 1; x <= coord.x + 1; x++)
             for (int y = coord.y - 1; y <= coord.y + 1; y++)

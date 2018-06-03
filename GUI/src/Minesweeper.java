@@ -83,14 +83,10 @@ public class Minesweeper extends JFrame {
     	
     	switch (game.getStatus()) {
     	
-    	default:
-    		return "";
-    	case PLAY:
-    		return "Next..";
-    	case LOST:
-    		return "BOOM!";
-    	case WON:
-    		return "Great! You won!";
+    	default: return "";
+    	case PLAY: return "Next..";
+    	case LOST: return "BOOM!";
+    	case WON: return "Great! You won!";
         }
     }
 

@@ -8,15 +8,15 @@ public enum Cell {
     CLICK, CLOSED, FLAGGED, FAIL, ERROR;
 
     public Object image;
-
-    public int getNumber() {
+    
+    int getNumber() {
 
         return this.ordinal();
 
     }
 
     // увеличиваем номер ячейки при расстановке мин
-    public Cell getNextNumberOfCell() {
+    Cell getNextNumberOfCell() {
 
         return Cell.values() [this.ordinal() + 1];
 
