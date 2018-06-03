@@ -11,13 +11,12 @@ import minesweeper.Game;
 
 public class Minesweeper extends JFrame {
 
-
     private JPanel panel;
     private Game game;
     private int lengthWidthOfPic = 50;
     private int columns = 10;
     private int rows = 10;
-    private int mines = 10;
+    private int mines = 9;
     private JLabel label;
 
     public static void main(String[] args) {
@@ -80,14 +79,18 @@ public class Minesweeper extends JFrame {
         add(panel);
     }
 
-    private String getMessage()
-    {
-        switch (game.getStatus())
-        {
-            default: return "";
-            case PLAY: return "Next..";
-            case LOST: return "BOOM!";
-            case WON: return "Great! You won!";
+    private String getMessage() {
+    	
+    	switch (game.getStatus()) {
+    	
+    	default:
+    		return "";
+    	case PLAY:
+    		return "Next..";
+    	case LOST:
+    		return "BOOM!";
+    	case WON:
+    		return "Great! You won!";
         }
     }
 

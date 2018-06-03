@@ -21,11 +21,16 @@ public class Flag {
     
     // ставим или убираем флажок
     void toggleFlaggedToCell(Coord coord) {
-        switch (mapOfFlags.get(coord)) {
-            case FLAGGED: setClosedToCell(coord);
-            break;
-            case CLOSED: setFlaggedToMine(coord);
-            break;
+    	
+    	switch (mapOfFlags.get(coord)) {
+    	
+    	case FLAGGED:
+    		setClosedToCell(coord);
+    		break;
+    	case CLOSED:
+    		setFlaggedToMine(coord); break;
+		default:
+			break;
         }
     }
 
@@ -48,8 +53,8 @@ public class Flag {
     
     // в конце игры показать неотмеченные мины
     void setOpenedToClosedMineCell(Coord coord) {
-        if (mapOfFlags.get(coord) == Cell.CLOSED)
-            mapOfFlags.set(coord, Cell.CLICK);
+    	if (mapOfFlags.get(coord) == Cell.CLOSED)
+    		mapOfFlags.set(coord, Cell.CLICK);
     }
     
     // в конце игры отмечаем неверно поставленные флажки

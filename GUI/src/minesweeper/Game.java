@@ -23,9 +23,9 @@ public class Game {
     }
 
     public Cell getCell(Coord coord) { // что изображаем в данной ячейке
-
-        if (flag.get(coord) != Cell.CLICK) // если ячейка не открыта
-            return flag.get(coord); // возвращаем верхний слой
+    	
+    	if (flag.get(coord) != Cell.CLICK) // если ячейка не открыта
+    		return flag.get(coord); // возвращаем верхний слой
         else
             return mine.get(coord); // возвращаем нижний слой
     }
@@ -50,24 +50,29 @@ public class Game {
     }
 
     private void openCell(Coord coord) {
-
-        switch (flag.get(coord)) {
-            case CLICK: setOpenedToClosedCellsAroundNumber(coord); return;
-            case FLAGGED: return;
-            case CLOSED:
-
-                switch (mine.get(coord)) {
-                    case ZERO: openCellsAround(coord); // открыть пустые ячейки вокруг
-                    return;
-                    case MINE: openCells(coord);
-                    return;
-                    default: flag.setOpenedToCell(coord);
-                    return;
-                }
+    	
+    	switch (flag.get(coord)) {
+    	
+    	case CLICK:
+    		setOpenedToClosedCellsAroundNumber(coord); return;
+    	case FLAGGED: return;
+    	case CLOSED:
+    		
+    		switch (mine.get(coord)) {
+    		
+    		case ZERO:
+    			openCellsAround(coord); // открыть пустые ячейки вокруг
+    			return;
+    		case MINE: openMines(coord); return;
+    		default:
+    			flag.setOpenedToCell(coord); return;
+    			
+    		}
+    		default: break;
         }
     }
 
-    private void openCells(Coord mine) {
+    private void openMines(Coord mine) {
         status = Status.LOST;
         flag.setMinedToCell(mine);
         for (Coord coord : Ranges.getAllCoords())

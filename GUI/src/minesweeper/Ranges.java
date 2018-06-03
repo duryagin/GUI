@@ -5,6 +5,9 @@ import java.util.Random;
 
 public class Ranges {
 
+    private static Coord size; // хранит размеры поля
+	private static ArrayList<Coord> allCoords;
+	
     public static void setSize(Coord size) {
         Ranges.size = size;
         allCoords = new ArrayList<Coord>();
@@ -17,20 +20,17 @@ public class Ranges {
         return size;
     }
 
-    private static Coord size; // хранит размеры поля
-
     // перебираем все координаты
     public static ArrayList<Coord> getAllCoords() {
         return allCoords;
     }
 
-    private static ArrayList<Coord> allCoords;
-    private static Random random = new Random();
-
     static boolean inRange (Coord coord) {
         return coord.x >= 0 && coord.x < size.x
                 && coord.y >= 0 && coord.y < size.y;
     }
+
+    private static Random random = new Random();
 
     // генерируем случайные координаты
     static Coord getRandomCoord() {
@@ -39,7 +39,7 @@ public class Ranges {
     }
 
     // получаем координаты вокург клетки
-    static ArrayList<Coord> getCoordsArround(Coord coord) {
+    public static ArrayList<Coord> getCoordsArround(Coord coord) {
         Coord around;
         ArrayList<Coord> list = new ArrayList<Coord>();
         for (int x = coord.x - 1; x <= coord.x + 1; x++)

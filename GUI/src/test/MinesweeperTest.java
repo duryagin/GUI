@@ -4,8 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import minesweeper.Cell;
 import minesweeper.Coord;
 import minesweeper.Game;
+import minesweeper.Matrix;
+import minesweeper.Ranges;
 import minesweeper.Status;
 
 class MinesweeperTest {
@@ -41,7 +44,7 @@ class MinesweeperTest {
 		gameThree.pressRightButton(coords);
 		gameThree.pressLeftButton(coords);
 		assertEquals(gameThree.getStatus(), Status.WON);
-		
+
 	}
 	
 	@Test
@@ -49,12 +52,11 @@ class MinesweeperTest {
 		
 		Game game = new Game(2, 2, 0);
 		game.start();
+		assertEquals(game.getStatus(), Status.PLAY);
 		Coord coords = new Coord(0, 0);
 		game.pressRightButton(coords);
 		assertEquals(game.getStatus(), Status.PLAY);
-		
 	
 	}
-
 
 }

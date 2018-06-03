@@ -9,14 +9,14 @@ public enum Cell {
 
     public Object image;
 
-    int getNumber() { // кол-во мин вокруг
+    public int getNumber() {
 
         return this.ordinal();
 
     }
 
     // увеличиваем номер ячейки при расстановке мин
-    Cell getNextNumberOfCell() {
+    public Cell getNextNumberOfCell() {
 
         return Cell.values() [this.ordinal() + 1];
 

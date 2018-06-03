@@ -37,9 +37,9 @@ public class Mine {
     }
     
     // увеличение чисел вокруг мин
-    public void incNumbersAroundMine(Coord coord) {
+    private void incNumbersAroundMine(Coord coord) {
         for (Coord around : Ranges.getCoordsArround(coord))
-            if (Cell.MINE != mapOfMines.get(around))
+            if (mapOfMines.get(around) != Cell.MINE)
                 mapOfMines.set(around, mapOfMines.get(around).getNextNumberOfCell());
     }
 
