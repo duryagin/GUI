@@ -65,7 +65,7 @@ class MinesweeperTest {
 		int rows = 3;
 		int count = 0;
 		
-		Game game = new Game(columns, rows, 1);
+		Game game = new Game(columns, rows, 0);
 		game.start();
 		
 		for (Coord coord : Ranges.getAllCoords()) {
@@ -83,7 +83,7 @@ class MinesweeperTest {
 				count++;
 		}
 		
-		assertEquals(count, 8);
+		assertEquals(count, 0);
 	
 	}
 	
